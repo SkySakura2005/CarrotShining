@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <box>
+        <name>广告</name>
+        <text>“下一个闪耀巨星，就是你！”</text>
+        <name>小兔子</name>
+        <text>如果是我，也能站在台上就好了……</text>
+        <text>我想成为大明星！</text>
+    </box>
+
+</root>
