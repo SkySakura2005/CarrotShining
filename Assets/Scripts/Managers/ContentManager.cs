@@ -38,6 +38,7 @@ namespace Managers
             }
             GameObject prefab=Instantiate(Resources.Load<GameObject>("Prefabs/"+contentName));
             ErrorProcess(prefab);
+            prefab.name = contentName;
             _contentStack.Push(prefab);
             StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIEnter());
         }

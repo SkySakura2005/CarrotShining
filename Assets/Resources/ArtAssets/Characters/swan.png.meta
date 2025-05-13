@@ -274,7 +274,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      swan_0: -8721966308287911491
+      swan_1: -8946558031821480852
+      swan_2: 6541184675255119784
+      swan_3: -2477674687146079
+      swan_4: -818027334716892394
+      swan_5: -7967657892821407362
+      swan_6: -2397064989114011546
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

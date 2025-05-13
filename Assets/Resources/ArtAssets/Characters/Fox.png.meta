@@ -226,7 +226,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fox_0: 1791904589581890566
+      Fox_1: 2193286503029695119
+      Fox_2: -1141285476458820233
+      Fox_3: 2658217922050601341
+      Fox_4: 6426739850758459826
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

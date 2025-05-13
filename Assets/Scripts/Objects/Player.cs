@@ -1,4 +1,5 @@
 using System;
+using UI.Main;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -29,6 +30,7 @@ namespace Objects
 
         public void PlayerMovement()
         {
+            moveInput = GameObject.Find("Main").GetComponent<MainCommand>().moveInput;
             Vector3 horiMove=new Vector3(moveInput.x*speed,moveInput.x*speed*0.6f);
             Vector3 vertMove=new Vector3(-moveInput.y*speed,moveInput.y*speed*0.6f);
             UpdateView(horiMove.x+vertMove.x,horiMove.y+vertMove.y);

@@ -12,19 +12,19 @@ namespace UI.Calendar
         public Sprite[] bgSprites=new Sprite[4];
         public Image bgImage;
         
-        protected override void ProcessString()
+        protected override void UpdateModel()
         {
-            mActiveSelection=CalendarStatics.ActiveSelection;
+            CalendarStatics.ActiveSelection=mActiveSelection;
         }
 
         protected override void UpdateView()
         {
             bgImage.sprite = bgSprites[mActiveSelection];
         }
-
-        protected override void UpdateModel()
+        protected override void ProcessString()
         {
-            CalendarStatics.ActiveSelection=mActiveSelection;
+            mActiveSelection=CalendarStatics.ActiveSelection;
         }
+        
     }
 }

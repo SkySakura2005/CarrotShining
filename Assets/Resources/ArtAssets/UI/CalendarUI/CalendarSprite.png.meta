@@ -322,7 +322,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CalendarSprite_0: 3054216294673930547
+      CalendarSprite_1: 247343385047113372
+      CalendarSprite_2: 1114245349130180425
+      CalendarSprite_3: 1450796917917971589
+      CalendarSprite_4: 7467115768755645120
+      CalendarSprite_5: -93010501582633458
+      CalendarSprite_6: -4065884129521536643
+      CalendarSprite_7: 1053519867580722042
+      CalendarSprite_8: 284513362838557041
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

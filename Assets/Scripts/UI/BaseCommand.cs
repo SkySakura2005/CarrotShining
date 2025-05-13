@@ -7,12 +7,20 @@ namespace UI
     {
         protected PlayerInputControls _controls;
 
+        public bool available=false;
         private void Awake()
         {
             _controls = new PlayerInputControls();
         }
 
-        public abstract void AddListeners();
-        public abstract void RemoveListeners();
+        public virtual void AddListeners()
+        {
+            available = true;
+        }
+
+        public virtual void RemoveListeners()
+        {
+            available = false;
+        }
     }
 }

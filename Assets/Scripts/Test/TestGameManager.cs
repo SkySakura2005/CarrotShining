@@ -6,7 +6,7 @@ namespace Test
     public class TestGameManager:MonoBehaviour
     {
         public static TestGameManager instance;
-        private void Start()
+        private void Awake()
         {
             if (instance == null)
             {

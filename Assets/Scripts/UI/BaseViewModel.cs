@@ -5,12 +5,16 @@ namespace UI
 {
     public abstract class BaseViewModel:MonoBehaviour
     {
-        
-        private void Update()
+        private void Start()
         {
             ProcessString();
-            UpdateView();
+        }
+
+        private void Update()
+        {
             UpdateModel();
+            UpdateView();
+            ProcessString();
         }
         protected abstract void ProcessString();
         protected abstract void UpdateView();
