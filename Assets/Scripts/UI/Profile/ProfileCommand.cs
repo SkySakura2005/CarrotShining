@@ -1,20 +1,20 @@
 using Managers;
-using Unity.Burst.Intrinsics;
 using UnityEngine.UI;
 
-namespace UI.Phone
+namespace UI.Profile
 {
-    public class PhoneCommand:BaseCommand
+    public class ProfileCommand:BaseCommand
     {
         public Button exitButton;
+
         public override void AddListeners()
         {
             base.AddListeners();
-            exitButton.onClick.AddListener(() =>
+            exitButton.onClick.AddListener((() =>
             {
                 ContentManager.Instance.Pop(); 
                 exitButton.gameObject.SetActive(false);
-            });
+            }));
         }
 
         public override void RemoveListeners()

@@ -34,7 +34,9 @@ namespace Objects
             Vector3 horiMove=new Vector3(moveInput.x*speed,moveInput.x*speed*0.6f);
             Vector3 vertMove=new Vector3(-moveInput.y*speed,moveInput.y*speed*0.6f);
             UpdateView(horiMove.x+vertMove.x,horiMove.y+vertMove.y);
-            _rb.velocity=horiMove+vertMove;
+            if(moveInput.x!=0) _rb.velocity=horiMove;
+            else if(moveInput.y!=0) _rb.velocity=vertMove;
+            else _rb.velocity=new Vector2(0,0);
         }
 
         private void UpdateView(float x, float y)

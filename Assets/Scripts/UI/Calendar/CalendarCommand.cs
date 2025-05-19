@@ -20,6 +20,7 @@ namespace UI.Calendar
 
         public override void AddListeners()
         {
+            base.AddListeners();
             for (int i = 0; i < 4; i++)
             {
                 int index = i;
@@ -30,13 +31,14 @@ namespace UI.Calendar
             }
             exitButton.onClick.AddListener(() =>
             {
-                exitButton.enabled = false;
+                exitButton.gameObject.SetActive(false);
                 ContentManager.Instance.Pop();
             });
         }
 
         public override void RemoveListeners()
         {
+            base.RemoveListeners();
             for (int i = 0; i < 4; i++)
             {
                 int index = i;
