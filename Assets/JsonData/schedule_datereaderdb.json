@@ -1,0 +1,239 @@
+[
+  {
+    "id": 1001,
+    "DateName": "《松果山的秘密》电视剧女三号",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Notice",
+      "ContinueDays": 28,
+      "FirstMoney": 0,
+      "EndMoney": 100000,
+      "MoodReduce": 5
+    }
+  },
+  {
+    "id": 1002,
+    "DateName": "《重生之我被师尊宠上天》短剧女一号",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Notice",
+      "ContinueDays": 7,
+      "FirstMoney": 0,
+      "EndMoney": 50000,
+      "MoodReduce": 10
+    }
+  },
+  {
+    "id": 1003,
+    "DateName": "《荒原追梦》电影女五号",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Notice",
+      "ContinueDays": 28,
+      "FirstMoney": 0,
+      "EndMoney": 150000,
+      "MoodReduce": 5
+    }
+  },
+  {
+    "id": 1004,
+    "DateName": "《偶像练习中》综艺",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Notice",
+      "ContinueDays": 15,
+      "FirstMoney": 0,
+      "EndMoney": 100000,
+      "MoodReduce": 15
+    }
+  },
+  {
+    "id": 2001,
+    "DateName": "舞蹈基础",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Course",
+      "IndexChange": [
+        [
+          "Charm",
+          10
+        ],
+        [
+          "Rhyme",
+          10
+        ]
+      ],
+      "MoneyReduce": 500
+    }
+  },
+  {
+    "id": 2002,
+    "DateName": "乐理基础",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Course",
+      "IndexChange": [
+        [
+          "Singing",
+          10
+        ],
+        [
+          "Confidence",
+          10
+        ]
+      ],
+      "MoneyReduce": 500
+    }
+  },
+  {
+    "id": 2003,
+    "DateName": "表情管理",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Course",
+      "IndexChange": [
+        [
+          "Posture",
+          10
+        ],
+        [
+          "Sense",
+          10
+        ]
+      ],
+      "MoneyReduce": 500
+    }
+  },
+  {
+    "id": 2004,
+    "DateName": "服装搭配",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Course",
+      "IndexChange": [
+        [
+          "Aesthetics",
+          10
+        ],
+        [
+          "Wisdom",
+          10
+        ]
+      ],
+      "MoneyReduce": 500
+    }
+  },
+  {
+    "id": 2005,
+    "DateName": "学院大师课",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Course",
+      "IndexChange": [
+        [
+          "Rhetoric",
+          10
+        ],
+        [
+          "Wisdom",
+          10
+        ],
+        [
+          "Acting",
+          10
+        ]
+      ],
+      "MoneyReduce": 1000
+    }
+  },
+  {
+    "id": 3001,
+    "DateName": "群众演员",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Work"
+    }
+  },
+  {
+    "id": 3002,
+    "DateName": "伴舞",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Work"
+    }
+  },
+  {
+    "id": 3003,
+    "DateName": "商演巡回",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Work"
+    }
+  },
+  {
+    "id": 3004,
+    "DateName": "直播带货",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Work"
+    }
+  },
+  {
+    "id": 3005,
+    "DateName": "录音CV",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Work"
+    }
+  },
+  {
+    "id": 4001,
+    "DateName": "公园散步",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Rest"
+    }
+  },
+  {
+    "id": 4002,
+    "DateName": "郊外露营",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Rest"
+    }
+  },
+  {
+    "id": 4003,
+    "DateName": "出国旅游",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Rest"
+    }
+  },
+  {
+    "id": 4004,
+    "DateName": "去医院",
+    "Unlocked": true,
+    "IconPath": "",
+    "SchuduledAction": {
+      "$type": "Rest"
+    }
+  }
+]
