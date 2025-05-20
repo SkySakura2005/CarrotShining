@@ -7,6 +7,6 @@ dotnet %LUBAN_DLL% ^
     -d json ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=Assets\Scripts\GameDatabase ^
-    -x outputDataDir=Assets\JsonData
+    -x outputDataDir=Assets\StreamingAssets\JsonData
 
 pause

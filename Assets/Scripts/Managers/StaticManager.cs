@@ -38,7 +38,7 @@ namespace Managers
         
         public static JSONNode LoadJson(string file)
         {
-            return JSON.Parse(File.ReadAllText(Application.dataPath+"/JsonData/"+file+".json", System.Text.Encoding.UTF8));
+            return JSON.Parse(File.ReadAllText(Application.streamingAssetsPath+"/JsonData/"+file+".json", System.Text.Encoding.UTF8));
         }
     }
 }
