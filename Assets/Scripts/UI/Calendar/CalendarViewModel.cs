@@ -13,17 +13,22 @@ namespace UI.Calendar
         public int mActiveSelection;
         public int[] currentIndex = { 0, 0, 0, 0 };
         
-        private List<DateCardsDB> currentDateCards=new List<DateCardsDB>();
         private int tmpSelectedIndex;
+        private int[] tmpPageIndex={ 0, 0, 0, 0 };
+        
+        public List<DateCardsDB> currentDateCards=new List<DateCardsDB>();
+        public DateCardsDB[] mCardSchedules = new DateCardsDB[7];
         
         public Sprite[] bgSprites=new Sprite[4];
         public Image bgImage;
         public GameObject currentCards;
+        public GameObject weeklyCards;
         
         protected override void Initialize()
         {
             mActiveSelection = CalendarStatics.ActiveSelection;
             tmpSelectedIndex = -1;
+            mCardSchedules = CalendarStatics.cardSchedules;
         }
         protected override void UpdateModel()
         {
@@ -39,14 +44,26 @@ namespace UI.Calendar
                 if (i < currentDateCards.Count)
                 {
                     nameText.text = currentDateCards[i].DateName;
-                    currentCards.transform.GetChild(i).GetComponent<Button>().interactable=true;
+                    currentCards.transform.GetChild(i).gameObject.SetActive(true);
                 }
                 else
                 {
                     nameText.text = string.Empty;
-                    currentCards.transform.GetChild(i).GetComponent<Button>().interactable=false;
+                    currentCards.transform.GetChild(i).gameObject.SetActive(false);
                 }
-                
+            }
+
+            for (int i = 0; i < 7; i++)
+            {
+                Text nameText=weeklyCards.transform.GetChild(i).Find("NameText").GetComponent<Text>();
+                if (mCardSchedules[i] != null)
+                {
+                    nameText.text = mCardSchedules[i].DateName;
+                }
+                else
+                {
+                    nameText.text = string.Empty;
+                }
             }
         }
 
@@ -54,16 +71,46 @@ namespace UI.Calendar
 
         protected override void ProcessString()
         {
-            if (tmpSelectedIndex != mActiveSelection)
+            if (tmpPageIndex[mActiveSelection] != currentIndex[mActiveSelection])
             {
                 
+                int cnt = 0;
+                bool hasContent=false;
+                foreach (var item in CalendarStatics.cardData.DataList)
+                {
+                    int selection;
+                    selection=getTypeFromSelection(item);
+                    if (selection == mActiveSelection&&item.Unlocked)
+                    {
+                        cnt++;
+                        if (cnt == currentIndex[mActiveSelection] * 5 + 1)
+                        {
+                            currentDateCards.Clear();
+                            hasContent = true;
+                            currentDateCards.Add(item);
+                        }
+                        else if (cnt > currentIndex[mActiveSelection] * 5 + 1)
+                        {
+                            currentDateCards.Add(item);
+                        }
+                        else if (cnt > currentIndex[mActiveSelection] * 5 + 5) break;
+                    }
+                    else if (selection> mActiveSelection)
+                    {
+                        break;
+                    }
+                }
+                if (!hasContent) currentIndex[mActiveSelection]--;
+                tmpPageIndex[mActiveSelection] = currentIndex[mActiveSelection];
+            }
+            if (tmpSelectedIndex != mActiveSelection)
+            {
                 currentDateCards.Clear();
                 int cnt = 0;
                 foreach (var item in CalendarStatics.cardData.DataList)
                 {
                     int selection;
                     selection=getTypeFromSelection(item);
-                    Debug.Log("Loop is entered and cnt is "+cnt);
                     if (selection == mActiveSelection&&item.Unlocked)
                     {
                         cnt++;
@@ -72,7 +119,7 @@ namespace UI.Calendar
                     }
                     else if (selection> mActiveSelection)
                     {
-                        Debug.Log("TypeId is "+item.SchuduledAction.GetTypeId());
+                        
                         break;
                     }
                 }

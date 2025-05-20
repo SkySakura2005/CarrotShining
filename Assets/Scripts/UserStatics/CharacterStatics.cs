@@ -20,7 +20,11 @@ namespace Statics
         
         public static int Coin=0;
         public static int Fans=0;
-        
-        public static Dictionary<string,int> PlayerStatsDict=new Dictionary<string,int>();
+
+        public static Dictionary<string, int> PlayerStatsDict = new Dictionary<string, int>()
+        {
+            
+            
+        };
     }
 }
