@@ -29,6 +29,30 @@ namespace UI.Main
         
         private string mCoinText;
         private string mFansText;
+        protected override void Initialize()
+        {
+            
+        }
+
+        protected override void UpdateModel()
+        {
+            
+        }
+
+        protected override void UpdateView()
+        {
+            YearText.text=mYearText;
+            DayText.text=mDayText;
+            WeekdayText.text=mWeekdayText;
+            MoodText.text=mMoodText;
+            LuckText.text=mLuckText;
+            ExpText.text=mExpText;
+            HealthText.text=mHealthText;
+            CoinText.text=mCoinText;
+            FansText.text=mFansText;
+        }
+
+        
         protected override void ProcessString()
         {
             mYearText = BaseStatics.Year.ToString() + "年";
@@ -79,24 +103,6 @@ namespace UI.Main
             
             mCoinText=CharacterStatics.Coin.ToString()+"G";
             mFansText = CharacterStatics.Fans.ToString();
-        }
-
-        protected override void UpdateView()
-        {
-            YearText.text=mYearText;
-            DayText.text=mDayText;
-            WeekdayText.text=mWeekdayText;
-            MoodText.text=mMoodText;
-            LuckText.text=mLuckText;
-            ExpText.text=mExpText;
-            HealthText.text=mHealthText;
-            CoinText.text=mCoinText;
-            FansText.text=mFansText;
-        }
-
-        protected override void UpdateModel()
-        {
-            
         }
     }
 }

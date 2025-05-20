@@ -2,6 +2,11 @@ namespace UI.Profile
 {
     public class ProfileViewModel:BaseViewModel
     {
+        protected override void Initialize()
+        {
+            
+        }
+
         protected override void ProcessString()
         {
             

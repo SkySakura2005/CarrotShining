@@ -7,6 +7,7 @@ namespace UI
     {
         private void Start()
         {
+            Initialize();
             ProcessString();
         }
 
@@ -16,6 +17,8 @@ namespace UI
             UpdateView();
             ProcessString();
         }
+
+        protected abstract void Initialize();
         protected abstract void ProcessString();
         protected abstract void UpdateView();
         protected abstract void UpdateModel();

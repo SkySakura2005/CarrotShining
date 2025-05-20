@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using SimpleJSON;
 using UnityEngine;
 using UnityEngine.Windows;
 using File = System.IO.File;
@@ -22,7 +23,7 @@ namespace Managers
             }
         }
 
-        public T ReadData<T>() 
+        /*public T ReadData<T>() 
         {
             string json=File.ReadAllText(Application.persistentDataPath + "/" + typeof(T).Name + ".json");
             T data = JsonUtility.FromJson<T>(json);
@@ -33,6 +34,11 @@ namespace Managers
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
             File.WriteAllText(Application.persistentDataPath + "/" + typeof(T).Name + ".json", json);
+        }*/
+        
+        public static JSONNode LoadJson(string file)
+        {
+            return JSON.Parse(File.ReadAllText(Application.dataPath+"/JsonData/"+file+".json", System.Text.Encoding.UTF8));
         }
     }
 }
