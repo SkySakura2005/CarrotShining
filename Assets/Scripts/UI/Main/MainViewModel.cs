@@ -1,3 +1,4 @@
+using Managers;
 using Statics;
 using UnityEngine;
 using UnityEngine.UI;
@@ -101,7 +102,7 @@ namespace UI.Main
             mLuckText=CharacterStatics.Luck.ToString()+"/"+CharacterStatics.MaxLuck.ToString();
             mHealthText=CharacterStatics.Health.ToString()+"/"+CharacterStatics.MaxHealth.ToString();
             
-            mCoinText=CharacterStatics.Coin.ToString()+"G";
+            mCoinText=PlayerModelManager.Instance.GetBigNumString("Coin")+"G";
             mFansText = CharacterStatics.Fans.ToString();
         }
     }

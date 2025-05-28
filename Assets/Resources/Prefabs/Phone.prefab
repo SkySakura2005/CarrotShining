@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 2179236848928306290}
   - component: {fileID: 2670312324173950546}
   - component: {fileID: 6974737592338697751}
+  - component: {fileID: 6491794714809282663}
   m_Layer: 5
   m_Name: Phone
   m_TagString: Untagged
@@ -412,6 +413,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   available: 0
   exitButton: {fileID: 4067919087812627083}
+--- !u!114 &6491794714809282663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4741771777771130988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c006765425304493a9928f48889a970e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7094094065870901458
 GameObject:
   m_ObjectHideFlags: 0

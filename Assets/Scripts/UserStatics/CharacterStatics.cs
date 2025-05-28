@@ -18,13 +18,20 @@ namespace Statics
         public static int Luck=Random.Range(0,MaxLuck+1);
         public static int Health=MaxHealth;
         
-        public static int Coin=0;
-        public static int Fans=0;
+        public static long Coin=100000;
+        public static long Fans=0;
 
-        public static Dictionary<string, int> PlayerStatsDict = new Dictionary<string, int>()
-        {
-            
-            
-        };
+        public static int Charm=0;
+        public static int Posture=0;
+        public static int Singing=0;
+        public static int Confidence=0;
+        public static int Rhetoric=0;
+        public static int Aesthetics=0;
+        public static int Rhyme=0;
+        public static int Darkness=0;
+        public static int Acting=0;
+        public static int Luckness=0;
+        public static int Wisdom=0;
+        public static int Sense=0;
     }
 }
