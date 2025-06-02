@@ -12,10 +12,15 @@ namespace Managers
             MessageNum = 0;
             selfMessage = false;
             Father = fatherNode;
+            Children = new Dictionary<string, MessageNode>();
             if (fatherNode != null)
             {
-                fatherNode.Children.Add(path,this);
-                path = fatherNode.Path+"/"+path;
+                //fatherNode.Children.Add(path,this);
+                Path = fatherNode.Path+"/"+path;
+            }
+            else
+            {
+                Path = path;
             }
         }
         public string Path;
@@ -33,7 +38,7 @@ namespace Managers
             while (fatherNode != null)
             {
                 fatherNode.MessageNum++;
-                Father = fatherNode.Father;
+                fatherNode = fatherNode.Father;
             }
         }
 
@@ -46,7 +51,7 @@ namespace Managers
             while (fatherNode != null)
             {
                 fatherNode.MessageNum--;
-                Father = fatherNode.Father;
+                fatherNode = fatherNode.Father;
             }
         }
     }
@@ -55,7 +60,7 @@ namespace Managers
         public static MessageManager Instance;
         
         private static MessageNode _rootNode;
-        private static List<MessageNode> _nodeList;
+        //private static List<MessageNode> _nodeList;
         private void Awake()
         {
             if (Instance == null)
@@ -67,9 +72,7 @@ namespace Managers
                 Destroy(this);
             }
             _rootNode = new MessageNode("",null);
-            _nodeList=new List<MessageNode>();
-            _nodeList.Add(_rootNode);
-            Instance.Initialize();
+            Initialize();
         }
 
         private void Initialize()
@@ -77,6 +80,7 @@ namespace Managers
             CreateNewNode("phoneMainPage");
             CreateNewNode("phoneMainPage/MessagePage");
             CreateNewNode("phoneMainPage/BlogPage");
+            GetNode("phoneMainPage/MessagePage").UpdateNewMessage();
         }
 
         public void CreateNewNode(string fullPath)
@@ -88,7 +92,7 @@ namespace Managers
             {
                 if (!currentNode.Children.ContainsKey(match.Groups[1].Value))
                 {
-                    _nodeList.Add(new MessageNode(match.Groups[1].Value,currentNode));
+                    currentNode.Children.Add(match.Groups[1].Value, new MessageNode(match.Groups[1].Value, currentNode));
                 }
                 currentNode=currentNode.Children[match.Groups[1].Value];
             }
