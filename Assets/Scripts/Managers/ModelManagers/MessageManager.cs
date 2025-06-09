@@ -80,7 +80,6 @@ namespace Managers
             CreateNewNode("phoneMainPage");
             CreateNewNode("phoneMainPage/MessagePage");
             CreateNewNode("phoneMainPage/BlogPage");
-            GetNode("phoneMainPage/MessagePage").UpdateNewMessage();
         }
 
         public void CreateNewNode(string fullPath)

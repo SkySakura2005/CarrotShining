@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class GeneralGameManager:MonoBehaviour
+    public class PhoneMessageManager:MonoBehaviour
     {
-        public static GeneralGameManager Instance;
+        public static PhoneMessageManager Instance;
+
         private void Awake()
         {
             if (Instance == null)
@@ -16,8 +17,6 @@ namespace Managers
             {
                 Destroy(this);
             }
-            DontDestroyOnLoad(gameObject);
-            ContentManager.Instance.Push("Main");
         }
     }
 }

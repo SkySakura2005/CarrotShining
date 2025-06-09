@@ -15,16 +15,22 @@ namespace cfg
 public partial class Tables
 {
     public schedule.DateReaderDB DateReaderDB {get; }
+    public phone.MessageReaderDB MessageReaderDB {get; }
+    public dialog.DialogReaderDB DialogReaderDB {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         DateReaderDB = new schedule.DateReaderDB(loader("schedule_datereaderdb"));
+        MessageReaderDB = new phone.MessageReaderDB(loader("phone_messagereaderdb"));
+        DialogReaderDB = new dialog.DialogReaderDB(loader("dialog_dialogreaderdb"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
         DateReaderDB.ResolveRef(this);
+        MessageReaderDB.ResolveRef(this);
+        DialogReaderDB.ResolveRef(this);
     }
 }
 

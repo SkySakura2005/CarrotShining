@@ -1,10 +1,14 @@
 using System.Collections.Generic;
+using cfg.phone;
 using Managers;
 
 namespace Statics
 {
     public static class MessageStatics
     {
-        public static Dictionary<string,MessageNode> MessageNodeTree = new Dictionary<string, MessageNode>();
+        public static MessageReaderDB
+            messageData = new MessageReaderDB(StaticManager.LoadJson("phone_messagereaderdb"));
+
+        public static List<MessageDB> messages = new List<MessageDB>();
     }
 }
