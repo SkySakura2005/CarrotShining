@@ -1,50 +1,42 @@
 [
   {
-    "ID": "D2001",
-    "name": "",
-    "text": "",
-    "nextID": ""
+    "ID": "D00001",
+    "dialogTag": "MainChapter2",
+    "name": "洛斯",
+    "text": "喂，是小兔子吗？我是之前选拔赛评委席上的洛斯，你还记得我吗？",
+    "nextID": "D00002",
+    "bgPath": "",
+    "action": "",
+    "choice": []
   },
   {
-    "ID": "D2002",
-    "name": "",
-    "text": "",
-    "nextID": ""
+    "ID": "D00002",
+    "dialogTag": "MainChapter2",
+    "name": "#name#",
+    "text": "呃，我叫#name#，记得……您是那个尾巴总甩个不停的……嗯，评委？",
+    "nextID": "D00003",
+    "bgPath": "",
+    "action": "",
+    "choice": []
   },
   {
-    "ID": "D2003",
-    "name": "",
-    "text": "",
-    "nextID": ""
+    "ID": "D00003",
+    "dialogTag": "MainChapter2",
+    "name": "洛斯",
+    "text": "哈哈，那就好。我对你印象挺深，想和你聊聊。明天有空吗？",
+    "nextID": "D00004",
+    "bgPath": "",
+    "action": "",
+    "choice": []
   },
   {
-    "ID": "D2004",
-    "name": "",
-    "text": "",
-    "nextID": ""
-  },
-  {
-    "ID": "D3001",
-    "name": "",
-    "text": "",
-    "nextID": ""
-  },
-  {
-    "ID": "D3002",
-    "name": "",
-    "text": "",
-    "nextID": ""
-  },
-  {
-    "ID": "D3003",
-    "name": "",
-    "text": "",
-    "nextID": ""
-  },
-  {
-    "ID": "D3004",
-    "name": "",
-    "text": "",
-    "nextID": ""
+    "ID": "D00004",
+    "dialogTag": "MainChapter2",
+    "name": "#name#",
+    "text": "哦？难道是关于比赛的事情吗?",
+    "nextID": "-1",
+    "bgPath": "",
+    "action": "",
+    "choice": []
   }
 ]

@@ -29,7 +29,7 @@ namespace Managers
             _currentAction?.Invoke();
         }
         
-        public void Push(string contentName)
+        public void Push(string contentName,params string[] args)
         {
             if (_contentStack.Count != 0)
             {
@@ -40,6 +40,7 @@ namespace Managers
             prefab.name = contentName;
             _contentStack.Push(prefab);
             StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIEnter());
+            _contentStack.Peek().GetComponent<BaseViewModel>().args = args;
         }
 
         public void Pop()

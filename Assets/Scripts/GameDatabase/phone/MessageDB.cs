@@ -19,8 +19,8 @@ public sealed partial class MessageDB : Luban.BeanBase
     {
         { if(!_buf["ID"].IsString) { throw new SerializationException(); }  ID = _buf["ID"]; }
         { if(!_buf["sender"].IsString) { throw new SerializationException(); }  Sender = _buf["sender"]; }
-        { if(!_buf["iconpath"].IsString) { throw new SerializationException(); }  Iconpath = _buf["iconpath"]; }
         { if(!_buf["content"].IsString) { throw new SerializationException(); }  Content = _buf["content"]; }
+        { if(!_buf["condition"].IsString) { throw new SerializationException(); }  Condition = _buf["condition"]; }
     }
 
     public static MessageDB DeserializeMessageDB(JSONNode _buf)
@@ -37,13 +37,13 @@ public sealed partial class MessageDB : Luban.BeanBase
     /// </summary>
     public readonly string Sender;
     /// <summary>
-    /// 图标的路径
-    /// </summary>
-    public readonly string Iconpath;
-    /// <summary>
     /// 信息内容
     /// </summary>
     public readonly string Content;
+    /// <summary>
+    /// 条件
+    /// </summary>
+    public readonly string Condition;
    
     public const int __ID__ = -1874370011;
     public override int GetTypeId() => __ID__;
@@ -57,8 +57,8 @@ public sealed partial class MessageDB : Luban.BeanBase
         return "{ "
         + "ID:" + ID + ","
         + "sender:" + Sender + ","
-        + "iconpath:" + Iconpath + ","
         + "content:" + Content + ","
+        + "condition:" + Condition + ","
         + "}";
     }
 }

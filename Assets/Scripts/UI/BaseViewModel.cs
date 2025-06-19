@@ -5,6 +5,7 @@ namespace UI
 {
     public abstract class BaseViewModel:MonoBehaviour
     {
+        public string[] args;
         private void Start()
         {
             Initialize();

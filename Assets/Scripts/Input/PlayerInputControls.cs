@@ -149,6 +149,45 @@ public partial class @PlayerInputControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""DialogUI"",
+            ""id"": ""2834f141-ad74-4198-9c93-1c549d05c9cf"",
+            ""actions"": [
+                {
+                    ""name"": ""Skip"",
+                    ""type"": ""Button"",
+                    ""id"": ""ed6d21e6-d05d-4f0b-8adb-410600158309"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4e567cf4-76d6-479d-a2f9-256a893f8af8"",
+                    ""path"": ""<Keyboard>/anyKey"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41c66d15-1221-4cd6-b8bb-04039f456b1c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -156,6 +195,9 @@ public partial class @PlayerInputControls: IInputActionCollection2, IDisposable
         // MainUI
         m_MainUI = asset.FindActionMap("MainUI", throwIfNotFound: true);
         m_MainUI_Move = m_MainUI.FindAction("Move", throwIfNotFound: true);
+        // DialogUI
+        m_DialogUI = asset.FindActionMap("DialogUI", throwIfNotFound: true);
+        m_DialogUI_Skip = m_DialogUI.FindAction("Skip", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -259,8 +301,58 @@ public partial class @PlayerInputControls: IInputActionCollection2, IDisposable
         }
     }
     public MainUIActions @MainUI => new MainUIActions(this);
+
+    // DialogUI
+    private readonly InputActionMap m_DialogUI;
+    private List<IDialogUIActions> m_DialogUIActionsCallbackInterfaces = new List<IDialogUIActions>();
+    private readonly InputAction m_DialogUI_Skip;
+    public struct DialogUIActions
+    {
+        private @PlayerInputControls m_Wrapper;
+        public DialogUIActions(@PlayerInputControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Skip => m_Wrapper.m_DialogUI_Skip;
+        public InputActionMap Get() { return m_Wrapper.m_DialogUI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DialogUIActions set) { return set.Get(); }
+        public void AddCallbacks(IDialogUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogUIActionsCallbackInterfaces.Add(instance);
+            @Skip.started += instance.OnSkip;
+            @Skip.performed += instance.OnSkip;
+            @Skip.canceled += instance.OnSkip;
+        }
+
+        private void UnregisterCallbacks(IDialogUIActions instance)
+        {
+            @Skip.started -= instance.OnSkip;
+            @Skip.performed -= instance.OnSkip;
+            @Skip.canceled -= instance.OnSkip;
+        }
+
+        public void RemoveCallbacks(IDialogUIActions instance)
+        {
+            if (m_Wrapper.m_DialogUIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDialogUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogUIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogUIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DialogUIActions @DialogUI => new DialogUIActions(this);
     public interface IMainUIActions
     {
         void OnMove(InputAction.CallbackContext context);
+    }
+    public interface IDialogUIActions
+    {
+        void OnSkip(InputAction.CallbackContext context);
     }
 }
