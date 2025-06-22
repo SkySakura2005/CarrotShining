@@ -46,7 +46,7 @@ namespace Managers
 
         public void Pop()
         {
-            Debug.Log("Poping the content"+_contentStack.Peek());
+            Debug.Log("Popping the content "+_contentStack.Peek());
             
             StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIExit());
             _contentStack.Pop();
@@ -74,6 +74,20 @@ namespace Managers
             _contentStack.Peek().GetComponent<YesNoBoxViewModel>().MessageText = messageText;
             _contentStack.Peek().GetComponent<YesNoBoxCommand>().YesCallback = yesCallback;
             _contentStack.Peek().GetComponent<YesNoBoxCommand>().NoCallback = noCallback;
+            StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIEnter());
+        }
+        public void PushTipBox(string messageText,Action callback)
+        {
+            if (_contentStack.Count != 0)
+            {
+                StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIOpen());
+            }
+            GameObject prefab=Instantiate(Resources.Load<GameObject>("Prefabs/MessageBox/TipBox"));
+            ErrorProcess(prefab);
+            prefab.name = "YesNoMessageBox";
+            _contentStack.Push(prefab);
+            _contentStack.Peek().GetComponent<TipBoxViewModel>().MessageText = messageText;
+            _contentStack.Peek().GetComponent<TipBoxCommand>().Callback = callback;
             StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIEnter());
         }
         private void ErrorProcess(GameObject prefab)
