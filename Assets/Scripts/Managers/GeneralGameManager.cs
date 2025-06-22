@@ -18,7 +18,6 @@ namespace Managers
             }
             DontDestroyOnLoad(gameObject);
             ContentManager.Instance.Push("Main");
-            ContentManager.Instance.Push("Dialog","MainChapter2");
         }
     }
 }

@@ -44,6 +44,21 @@ namespace UI.Calendar
                         if (_viewModel.mCardSchedules[j] == null)
                         {
                             _viewModel.mCardSchedules[j]=_viewModel.currentDateCards[index];
+                            if (j == 6)
+                            {
+                                ContentManager.Instance.PushMessageBox("本周的日程决定好了吗？", 
+                                    () =>
+                                {
+                                    ContentManager.Instance.Pop();
+                                },
+                                    () =>
+                                {
+                                    for (int index = 0; index < 7; index++)
+                                    {
+                                        _viewModel.mCardSchedules[index] = null;
+                                    }
+                                });
+                            }
                             break;
                         }
                     }

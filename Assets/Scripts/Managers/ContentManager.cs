@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UI;
+using UI.MessageBox.YesNoBox;
 
 namespace Managers
 {
@@ -60,6 +61,21 @@ namespace Managers
             }
         }
 
+        public void PushMessageBox(string messageText,Action yesCallback,Action noCallback)
+        {
+            if (_contentStack.Count != 0)
+            {
+                StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIOpen());
+            }
+            GameObject prefab=Instantiate(Resources.Load<GameObject>("Prefabs/MessageBox/YesNoBox"));
+            ErrorProcess(prefab);
+            prefab.name = "YesNoMessageBox";
+            _contentStack.Push(prefab);
+            _contentStack.Peek().GetComponent<YesNoBoxViewModel>().MessageText = messageText;
+            _contentStack.Peek().GetComponent<YesNoBoxCommand>().YesCallback = yesCallback;
+            _contentStack.Peek().GetComponent<YesNoBoxCommand>().NoCallback = noCallback;
+            StartCoroutine(_contentStack.Peek().GetComponent<BaseUICanvas>().OnUIEnter());
+        }
         private void ErrorProcess(GameObject prefab)
         {
             if (prefab == null)
