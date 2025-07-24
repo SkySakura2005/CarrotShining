@@ -17,12 +17,16 @@ public partial class Tables
     public schedule.DateReaderDB DateReaderDB {get; }
     public phone.MessageReaderDB MessageReaderDB {get; }
     public dialog.DialogReaderDB DialogReaderDB {get; }
+    public cardGame.NormalCardReaderDB NormalCardReaderDB {get; }
+    public cardGame.EmotionCardReaderDB EmotionCardReaderDB {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         DateReaderDB = new schedule.DateReaderDB(loader("schedule_datereaderdb"));
         MessageReaderDB = new phone.MessageReaderDB(loader("phone_messagereaderdb"));
         DialogReaderDB = new dialog.DialogReaderDB(loader("dialog_dialogreaderdb"));
+        NormalCardReaderDB = new cardGame.NormalCardReaderDB(loader("cardgame_normalcardreaderdb"));
+        EmotionCardReaderDB = new cardGame.EmotionCardReaderDB(loader("cardgame_emotioncardreaderdb"));
         ResolveRef();
     }
     
@@ -31,6 +35,8 @@ public partial class Tables
         DateReaderDB.ResolveRef(this);
         MessageReaderDB.ResolveRef(this);
         DialogReaderDB.ResolveRef(this);
+        NormalCardReaderDB.ResolveRef(this);
+        EmotionCardReaderDB.ResolveRef(this);
     }
 }
 

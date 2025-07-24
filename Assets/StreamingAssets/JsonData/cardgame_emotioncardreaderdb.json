@@ -1,0 +1,32 @@
+[
+  {
+    "ID": "EC0001",
+    "name": "情绪共鸣",
+    "action": "",
+    "effectDescription": "若动作牌等级与台词等级差值≤1，额外+2分",
+    "limitDescription": "",
+    "rank": "“你完全进入角色了，情绪自然流淌。”",
+    "iconPath": "",
+    "rare": 0
+  },
+  {
+    "ID": "EC0002",
+    "name": "精准渲染",
+    "action": "",
+    "effectDescription": "",
+    "limitDescription": "",
+    "rank": "",
+    "iconPath": "",
+    "rare": 0
+  },
+  {
+    "ID": "EC0003",
+    "name": "情绪激发",
+    "action": "",
+    "effectDescription": "",
+    "limitDescription": "",
+    "rank": "",
+    "iconPath": "",
+    "rare": 0
+  }
+]
